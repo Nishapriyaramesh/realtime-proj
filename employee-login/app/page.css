@@ -8,14 +8,6 @@ body {
     font-family: Arial, sans-serif;
 }
 
-.login-container {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-}
-
 .login-form {
     background: white;
     padding: 35px;
