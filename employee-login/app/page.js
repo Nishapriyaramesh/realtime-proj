@@ -1,61 +1,68 @@
 
-"use client";
+import Link from "next/link";
 
-import { useState } from "react";
-import "./page.css";
+export default function Home() {
+  return (
+    <div
+      style={{
+        minHeight: "100vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        background: "linear-gradient(135deg, #667eea, #764ba2)",
+        fontFamily: "Arial, sans-serif",
+      }}
+    >
+      <div
+        style={{
+          background: "white",
+          padding: "40px",
+          width: "400px",
+          textAlign: "center",
+          borderRadius: "12px",
+          boxShadow: "0 5px 20px rgba(0,0,0,0.2)",
+        }}
+      >
+        <h1 style={{ color: "#333" }}>
+          Welcome to Our Website
+        </h1>
 
-export default function LoginPage() {
+        <p style={{ color: "#666", marginBottom: "25px" }}>
+          Please login or create an account to continue.
+        </p>
 
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [message, setMessage] = useState("");
+        <Link href="/login">
+          <button
+            style={{
+              padding: "12px 25px",
+              margin: "8px",
+              background: "#667eea",
+              color: "white",
+              border: "none",
+              borderRadius: "6px",
+              cursor: "pointer",
+            }}
+          >
+            Login
+          </button>
+        </Link>
 
-    function handleLogin(event) {
-        event.preventDefault();
-
-        if (
-            email === "admin@gmail.com" &&
-            password === "12345"
-        ) {
-            setMessage("Login Successful!");
-        } else {
-            setMessage("Invalid Email or Password!");
-        }
-    }
-
-    return (
-        <div className="login-container">
-
-            <form className="login-form" onSubmit={handleLogin}>
-
-                <h2>Employee Login</h2>
-
-                <label>Email Address</label>
-
-                <input
-                    type="email"
-                    placeholder="Enter your email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                />
-
-                <label>Password</label>
-
-                <input
-                    type="password"
-                    placeholder="Enter your password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                />
-
-                <button type="submit">Login</button>
-
-                <p>{message}</p>
-
-            </form>
-
-        </div>
-    );
+        <Link href="/signup">
+          <button
+            style={{
+              padding: "12px 25px",
+              margin: "8px",
+              background: "#667eea",
+              color: "white",
+              border: "none",
+              borderRadius: "6px",
+              cursor: "pointer",
+            }}
+          >
+            Sign Up
+          </button>
+        </Link>
+      </div>
+    </div>
+  );
 }
